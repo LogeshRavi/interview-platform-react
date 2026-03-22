@@ -3,6 +3,9 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 export default function Home() {
+
+    const API_URL = "https://interview-platform-nodejs.onrender.com";
+
   const [interviews, setInterviews] = useState([]);
   const [search, setSearch] = useState("");
 
@@ -13,7 +16,7 @@ export default function Home() {
 const fetchInterviews = async () => {
   try {
     const res = await axios.get(
-      `http://localhost:5000/interviews?company=${search}`
+      `${API_URL}/interviews?company=${search}`
     );
     setInterviews(res.data);
   } catch (err) {

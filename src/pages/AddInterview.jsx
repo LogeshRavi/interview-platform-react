@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 
+const API_URL = "https://interview-platform-nodejs.onrender.com";
+
 export default function AddInterview() {
   const [formData, setFormData] = useState({
     company: "",
@@ -21,7 +23,7 @@ export default function AddInterview() {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:5000/interviews", formData);
+      await axios.post(`${API_URL}/interviews`, formData);
       alert("Saved successfully");
     } catch (err) {
       console.error(err);

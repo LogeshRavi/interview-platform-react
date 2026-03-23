@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
-
-const API_URL = "https://interview-platform-nodejs.onrender.com";
+import API_URL from "../services/api";
+import { auth } from "../firebase";
 
 export default function AddInterview() {
   const [formData, setFormData] = useState({
@@ -20,15 +20,18 @@ export default function AddInterview() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    try {
-      await axios.post(`${API_URL}/interviews`, formData);
-      alert("Saved successfully");
-    } catch (err) {
-      console.error(err);
-    }
+  const user = auth.currentUser;
+
+  const data = {
+    ...formData,
+    createdBy: user?.email,
   };
+
+  await axios.post(`${API_URL}/interviews`, data);
+  alert("Saved Succesfully")
+};
 
 return (
   <div className="max-w-xl mx-auto p-4">

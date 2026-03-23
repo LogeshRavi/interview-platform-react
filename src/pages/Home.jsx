@@ -73,7 +73,7 @@ export default function Home() {
           <p className="mt-3 text-gray-700 leading-relaxed">{item.questions}</p>
 
           <p className="text-xs text-gray-400 mt-3">
-            Posted by {item.createdBy}
+            Posted by {item.createdBy?.name || item.createdBy?.email || "Unknown"}
           </p>
         </div>
       ))}

@@ -26,7 +26,10 @@ export default function AddInterview() {
 
   const data = {
     ...formData,
-    createdBy: user?.email,
+    createdBy: {
+    name: user.displayName,
+    email: user.email,
+  }
   };
 
   await axios.post(`${API_URL}/interviews`, data);

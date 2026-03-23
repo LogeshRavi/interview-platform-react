@@ -51,7 +51,7 @@ return (
         <p className="mt-2 text-gray-700">{item.questions}</p>
 
         <p className="text-xs text-gray-400 mt-2">
-          Posted by {item.createdBy}
+          Posted by {item.createdBy?.name || item.createdBy?.email || "Unknown"}
         </p>
       </div>
     ))}

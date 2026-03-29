@@ -12,7 +12,15 @@ export default function Layout({ children }) {
           InterviewHub
         </Link>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
+
+          {/* ✅ Show only when logged in */}
+          {user && (
+            <Link to="/my-interviews" className="text-blue-500 hover:underline">
+              My Interviews
+            </Link>
+          )}
+
           {user ? (
             <>
               <span className="text-sm text-gray-600">
@@ -20,7 +28,7 @@ export default function Layout({ children }) {
               </span>
             </>
           ) : (
-            <Link to="/login" className="text-blue-500">
+            <Link to="/login" className="text-blue-500 hover:underline">
               Login
             </Link>
           )}

@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import AddInterview from "./pages/AddInterview";
 import CompanyPage from "./pages/CompanyPage";
 import Login from "./pages/Login";
+import MyInterviews from "./pages/MyInterviews";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
             </Layout>
           }
         />
+        <Route path="/my-interviews" element={<Layout><MyInterviews /></Layout>} />
       </Routes>
     </BrowserRouter>
   );
